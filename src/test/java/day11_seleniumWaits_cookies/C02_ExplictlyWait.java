@@ -74,10 +74,21 @@ public class C02_ExplictlyWait {
         // sonra wait objesi ile locate edilebilir
         // locate edilemiyrsa wait objesine bekleme emri locator olarak verilebilir
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@id='message']")));
+        WebElement itsGone= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@id='message']")));
 
 
-        WebElement itsGone=driver.findElement(By.xpath("//p[@id='message']"));
+        driver.findElement(By.xpath("//p[@id='message']"));
         Assert.assertTrue(itsGone.isDisplayed());
+
+        //6. Add buttonuna basin
+        driver.findElement(By.xpath("//button[text()='Add']")).click();
+        //7. It’s back mesajinin gorundugunu test edin
+
+        WebElement itsBackElementi= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@id='message']")));
+
+        Assert.assertTrue(itsBackElementi.isDisplayed());
+
+
+
     }
 }
