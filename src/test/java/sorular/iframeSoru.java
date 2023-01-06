@@ -28,7 +28,10 @@ public class iframeSoru extends TestBase {
         Thread.sleep(2000);
         driver.findElement(By.xpath("//button[text()='Close']")).click();
         Thread.sleep(2000);
-        driver.get("http://webdriveruniversity.com/index.html");
+        //6. "WebdriverUniversity.com (IFrame)" linkini tiklayin
+        driver.switchTo().defaultContent();
+        driver.findElement(By.xpath("(//a[@href='..\\index.html'])[1]")).click();
+        Thread.sleep(2000);
         //7. "http://webdriveruniversity.com/index.html" adresine gittigini test edin
         String actualURL= driver.getCurrentUrl();
         String expectedURl="http://webdriveruniversity.com/index.html";
